@@ -64,4 +64,3 @@ This project was built to demonstrate how 20th-century mechanical logic translat
 *   **[Roland142](https://github.com/Roland142)** — UI/Research
 
 **Institution:** ITMO University**Institution:** ITMO University
-```
