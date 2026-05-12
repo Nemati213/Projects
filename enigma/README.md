@@ -65,5 +65,3 @@ This project was built to demonstrate how 20th-century mechanical logic translat
 
 **Institution:** ITMO University**Institution:** ITMO University
 ```
-
----
