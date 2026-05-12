@@ -1,0 +1,441 @@
+/* =======================================================
+   ОСНОВНОЙ КОРПУС (Имитация темного металла/бакелита)
+   ======================================================= */
+.main-container {
+    -fx-background-color: #2b2b2b; /* Темно-серый фон машины */
+    -fx-padding: 25;
+    -fx-spacing: 15;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* =======================================================
+   1. ПАНЕЛЬ ВЫВОДА (OUTPUT) - Эффект бумажной ленты
+   ======================================================= */
+.output-section {
+    -fx-background-color: #1e1e1e;
+    -fx-padding: 15;
+    -fx-background-radius: 5;
+    -fx-border-color: #111111;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+}
+
+.section-title {
+    -fx-text-fill: #888888;
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 0 0 10 0;
+}
+
+.output-field {
+    -fx-background-color: #f0ebd8; /* Цвет старой бумаги */
+    -fx-text-fill: #1a1a1a;        /* Цвет чернил */
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-border-color: #a39e8a;     /* Тень по краям бумаги */
+    -fx-border-width: 2;
+}
+
+/* Убираем синюю обводку при клике (стандартная в JavaFX) */
+.output-field:focused {
+    -fx-background-insets: 0;
+}
+
+/* =======================================================
+   2. РОТОРЫ (Вдавленные окошки)
+   ======================================================= */
+.rotors-section {
+    -fx-alignment: center;
+    -fx-spacing: 60;
+    -fx-background-color: #252525;
+    -fx-padding: 25;
+    -fx-border-color: #111111;
+    -fx-border-width: 2 0 2 0; /* Линии сверху и снизу */
+}
+
+.rotor-box {
+    -fx-alignment: center;
+    -fx-spacing: 5;
+    -fx-background-color: #151515; /* Глубокий черный внутри окошка */
+    -fx-padding: 15 25;
+    -fx-background-radius: 8;
+    -fx-border-color: #3d3d3d;     /* Металлическая окантовка */
+    -fx-border-width: 3;
+    -fx-border-radius: 8;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 5); /* Тень внутрь */
+}
+
+.rotor-type-label {
+    -fx-text-fill: #777777;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 5 0;
+}
+
+.rotor-active-letter {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-weight: bold;
+    -fx-font-size: 36px;
+}
+
+.rotor-surrounding-letter {
+    -fx-text-fill: #444444; /* Тусклые буквы сверху и снизу */
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-size: 16px;
+}
+
+.rotor-btn-group {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 10 0 0 0;
+}
+
+.rotor-btn {
+    -fx-background-color: #333333;
+    -fx-text-fill: #aaaaaa;
+    -fx-min-width: 35px;
+    -fx-background-radius: 3;
+    -fx-font-weight: bold;
+    -fx-border-color: #111;
+}
+
+.rotor-btn:pressed {
+    -fx-background-color: #111111;
+    -fx-translate-y: 1px;
+}
+
+/* =======================================================
+   3. ЛАМПОВАЯ ПАНЕЛЬ
+   ======================================================= */
+.lampboard-section {
+    -fx-alignment: center;
+    -fx-spacing: 15;
+    -fx-padding: 20 0;
+}
+
+.lamp-row {
+    -fx-alignment: center;
+    -fx-spacing: 25;
+}
+
+.lamp-row-offset-1 {
+    -fx-padding: 0 0 0 45; /* Сдвиг среднего ряда вправо */
+}
+
+/* Лампа ВЫКЛЮЧЕНА (по умолчанию) */
+.lamp-circle {
+    -fx-fill: #222222;       /* Темное стекло */
+    -fx-stroke: #111111;     /* Черный ободок */
+    -fx-stroke-width: 4;
+}
+
+.lamp-text {
+    -fx-text-fill: #555555;  /* Тусклая буква */
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* Лампа ВКЛЮЧЕНА (этот класс мы будем добавлять в Контроллере) */
+.lamp-on .lamp-circle {
+    -fx-fill: #ffcc00;       /* Ярко-желтый/оранжевый */
+    -fx-stroke: #b38f00;     /* Отражение на ободке */
+    -fx-effect: dropshadow(three-pass-box, #ffb300, 25, 0.6, 0, 0); /* ЭФФЕКТ СВЕЧЕНИЯ */
+}
+
+.lamp-on .lamp-text {
+    -fx-text-fill: #1a1a1a;  /* Буква становится черной на светлом фоне */
+}
+
+/* =======================================================
+   4. КЛАВИАТУРА (Механические круглые кнопки)
+   ======================================================= */
+.keyboard-section {
+    -fx-alignment: center;
+    -fx-spacing: 15;
+    -fx-padding: 20 0 30 0;
+}
+
+.key-row {
+    -fx-alignment: center;
+    -fx-spacing: 18;
+}
+
+.key-row-offset-1 {
+    -fx-padding: 0 0 0 35; /* Сдвиг клавиатуры */
+}
+
+.enigma-key {
+    -fx-background-color: #1a1a1a, linear-gradient(#3a3a3a, #111111);
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 50em; /* Делает кнопку идеально круглой */
+    -fx-min-width: 55px;
+    -fx-min-height: 55px;
+    -fx-text-fill: #eeeeee;
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.8), 5, 0.0, 0, 4); /* Тень от кнопки */
+    -fx-cursor: hand;
+}
+
+.enigma-key:pressed {
+    -fx-background-insets: 0, 1;
+    -fx-effect: none;        /* Убираем тень при нажатии */
+    -fx-translate-y: 4px;    /* Кнопка "проваливается" вниз */
+}
+
+/* =======================================================
+   5. НИЖНИЕ КНОПКИ (Действия)
+   ======================================================= */
+.bottom-section {
+    -fx-alignment: center;
+    -fx-spacing: 20;
+    -fx-padding: 10 0 0 0;
+}
+
+.action-btn {
+    -fx-background-color: #383838;
+    -fx-text-fill: white;
+    -fx-font-family: 'Segoe UI';
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 12 20;
+    -fx-background-radius: 4;
+    -fx-border-color: #111111;
+    -fx-border-radius: 4;
+    -fx-cursor: hand;
+}
+
+.action-btn:hover {
+    -fx-background-color: #4a4a4a;
+}
+
+.danger-btn {
+    -fx-background-color: #7a2828; /* Красный оттенок для Reset */
+}
+
+.danger-btn:hover {
+    -fx-background-color: #9c3333;
+}
+
+.action-btn:pressed {
+    -fx-background-color: #111111;
+    -fx-translate-y: 2px;
+}
+
+/* Главный контейнер - уменьшаем отступы и зазоры */
+.main-container {
+    -fx-background-color: #2b2b2b;
+    -fx-padding: 10;    /* Было 25 */
+    -fx-spacing: 5;     /* Было 15 */
+}
+
+/* Секция вывода - чуть меньше высоты */
+.output-section {
+    -fx-padding: 8 15;
+}
+
+.output-field {
+    -fx-font-size: 22px; /* Чуть меньше шрифт */
+}
+
+/* Роторы - делаем компактнее */
+.rotors-section {
+    -fx-padding: 10;    /* Было 25 */
+    -fx-spacing: 30;    /* Сближаем их */
+}
+
+.rotor-box {
+    -fx-padding: 5 15;  /* Меньше высоты внутри */
+}
+
+.rotor-active-letter {
+    -fx-font-size: 28px; /* Было 36 */
+}
+
+/* Лампы - уменьшаем размер */
+.lampboard-section {
+    -fx-spacing: 8;     /* Было 15 */
+    -fx-padding: 5 0;   /* Было 30 */
+}
+
+.lamp-row {
+    -fx-spacing: 15;    /* Было 25 */
+}
+
+.lamp-circle {
+    -fx-radius: 14px;   /* Было 18 - лампы стали меньше */
+}
+
+/* Клавиатура - уменьшаем кнопки */
+.keyboard-section {
+    -fx-spacing: 8;
+    -fx-padding: 5 0 10 0;
+}
+
+.key-row {
+    -fx-alignment: center;
+    -fx-spacing: 12;
+}
+
+.enigma-key {
+    -fx-min-width: 45px;  /* Было 55 */
+    -fx-min-height: 45px; /* Было 55 */
+    -fx-font-size: 14px;  /* Было 18 */
+}
+
+/* Нижние кнопки */
+.bottom-section {
+    -fx-padding: 5 0 0 0;
+}
+
+.action-btn {
+    -fx-padding: 8 15;
+}
+
+.trace-section {
+    -fx-background-color: #222222;
+    -fx-padding: 10;
+    -fx-border-color: #444444;
+    -fx-border-width: 0 0 0 2;
+}
+
+.trace-field {
+    -fx-control-inner-background: #1a1a1a;
+    -fx-text-fill: #00ff00;
+    -fx-font-family: 'Consolas', 'Monospaced';
+    -fx-font-size: 11px;
+}
+
+/* =======================================================
+   ВЫБОР РОТОРОВ (ComboBox)
+   ======================================================= */
+.rotor-select {
+    -fx-background-color: #111111;
+    -fx-border-color: #444444;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 0;
+}
+
+/* Текст выбранного элемента */
+.rotor-select .list-cell {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* Кнопка-стрелочка сбоку */
+.rotor-select .arrow-button {
+    -fx-background-color: #222222;
+}
+
+.rotor-select .arrow {
+    -fx-background-color: #aaaaaa;
+}
+
+/* Выпадающий список (меню) */
+.rotor-select .list-view {
+    -fx-background-color: #111111;
+    -fx-border-color: #444444;
+}
+
+/* Элементы внутри выпадающего списка */
+.rotor-select .list-view .list-cell {
+    -fx-text-fill: #aaaaaa;
+    -fx-padding: 5 10;
+}
+
+/* При наведении в списке */
+.rotor-select .list-view .list-cell:hover,
+.rotor-select .list-view .list-cell:filled:selected {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+
+/* =======================================================
+   НАСТРОЙКА КОЛЕЦ (Ring Selector)
+   ======================================================= */
+.ring-select {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #333333;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+}
+
+.ring-select .list-cell {
+    -fx-text-fill: #888888;
+    -fx-font-family: 'Courier New', monospace;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 12px;
+}
+
+.ring-select .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.ring-select .arrow {
+    -fx-background-color: #666666;
+}
+
+.ring-select .list-view {
+    -fx-background-color: #1a1a1a;
+}
+
+.ring-select .list-view .list-cell {
+    -fx-text-fill: #888888;
+}
+
+.ring-select .list-view .list-cell:hover,
+.ring-select .list-view .list-cell:filled:selected {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+
+.dialog-pane {
+    -fx-background-color: #2b2c2f;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #e8e8e8;
+    -fx-font-family: "Courier New", monospace;
+}
+
+.dialog-pane .text-field {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #4a4a4a;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 5 10;
+}
+
+.dialog-pane .text-field:focused {
+    -fx-border-color: #00bcd4;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #383a3e;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #222222;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #4c4e54;
+}
+
+.dialog-pane > *.header-panel {
+    -fx-background-color: #222325;
+}
+.dialog-pane > *.header-panel *.label {
+    -fx-text-fill: #ffffff;
+}

@@ -1,0 +1,17 @@
+# Скомпилированные файлы (артефакты)
+/target/
+/out/
+
+# Настройки IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Системный мусор
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+Enigma_Portable/

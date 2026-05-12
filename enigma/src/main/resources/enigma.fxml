@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<HBox spacing="10" stylesheets="@styles.css" styleClass="main-container" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.itmo.nemat.enigma.EnigmaController">
+    <VBox spacing="10" prefWidth="700">
+
+    <VBox styleClass="output-section">
+        <Label styleClass="section-title" text="OUTPUT" />
+        <TextField fx:id="outputArea" editable="false" styleClass="output-field" text="" />
+    </VBox>
+
+    <HBox styleClass="rotors-section">
+        <VBox styleClass="rotor-box">
+            <ComboBox fx:id="rotor1Selector" styleClass="rotor-select" />
+            <Label fx:id="rotor1Top" styleClass="rotor-surrounding-letter" text="Z" />
+            <Label fx:id="rotor1Active" styleClass="rotor-active-letter" text="A" />
+            <Label fx:id="rotor1Bottom" styleClass="rotor-surrounding-letter" text="B" />
+            <HBox styleClass="rotor-btn-group">
+                <Button fx:id="rotor1UpBtn" styleClass="rotor-btn" text="+" />
+                <Button fx:id="rotor1DownBtn" styleClass="rotor-btn" text="-" />
+            </HBox>
+            <VBox alignment="CENTER" spacing="2" style="-fx-padding: 10 0 0 0;">
+                <Label text="RING" styleClass="rotor-type-label" style="-fx-font-size: 10px;" />
+                <ComboBox fx:id="ring1Selector" styleClass="ring-select" prefWidth="60" />
+            </VBox>
+        </VBox>
+
+        <VBox styleClass="rotor-box">
+            <ComboBox fx:id="rotor2Selector" styleClass="rotor-select" />
+            <Label fx:id="rotor2Top" styleClass="rotor-surrounding-letter" text="Z" />
+            <Label fx:id="rotor2Active" styleClass="rotor-active-letter" text="A" />
+            <Label fx:id="rotor2Bottom" styleClass="rotor-surrounding-letter" text="B" />
+            <HBox styleClass="rotor-btn-group">
+                <Button fx:id="rotor2UpBtn" styleClass="rotor-btn" text="+" />
+                <Button fx:id="rotor2DownBtn" styleClass="rotor-btn" text="-" />
+            </HBox>
+            <VBox alignment="CENTER" spacing="2" style="-fx-padding: 10 0 0 0;">
+                <Label text="RING" styleClass="rotor-type-label" style="-fx-font-size: 10px;" />
+                <ComboBox fx:id="ring2Selector" styleClass="ring-select" prefWidth="60" />
+            </VBox>
+        </VBox>
+
+        <VBox styleClass="rotor-box">
+            <ComboBox fx:id="rotor3Selector" styleClass="rotor-select" />
+            <Label fx:id="rotor3Top" styleClass="rotor-surrounding-letter" text="Z" />
+            <Label fx:id="rotor3Active" styleClass="rotor-active-letter" text="A" />
+            <Label fx:id="rotor3Bottom" styleClass="rotor-surrounding-letter" text="B" />
+            <HBox styleClass="rotor-btn-group">
+                <Button fx:id="rotor3UpBtn" styleClass="rotor-btn" text="+" />
+                <Button fx:id="rotor3DownBtn" styleClass="rotor-btn" text="-" />
+            </HBox>
+            <VBox alignment="CENTER" spacing="2" style="-fx-padding: 10 0 0 0;">
+                <Label text="RING" styleClass="rotor-type-label" style="-fx-font-size: 10px;" />
+                <ComboBox fx:id="ring3Selector" styleClass="ring-select" prefWidth="60" />
+            </VBox>
+        </VBox>
+    </HBox>
+
+    <VBox styleClass="lampboard-section">
+        <HBox styleClass="lamp-row">
+            <StackPane fx:id="lampQ"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="Q" /></StackPane>
+            <StackPane fx:id="lampW"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="W" /></StackPane>
+            <StackPane fx:id="lampE"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="E" /></StackPane>
+            <StackPane fx:id="lampR"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="R" /></StackPane>
+            <StackPane fx:id="lampT"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="T" /></StackPane>
+            <StackPane fx:id="lampZ"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="Z" /></StackPane>
+            <StackPane fx:id="lampU"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="U" /></StackPane>
+            <StackPane fx:id="lampI"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="I" /></StackPane>
+            <StackPane fx:id="lampO"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="O" /></StackPane>
+        </HBox>
+
+        <HBox styleClass="lamp-row, lamp-row-offset-1">
+            <StackPane fx:id="lampA"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="A" /></StackPane>
+            <StackPane fx:id="lampS"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="S" /></StackPane>
+            <StackPane fx:id="lampD"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="D" /></StackPane>
+            <StackPane fx:id="lampF"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="F" /></StackPane>
+            <StackPane fx:id="lampG"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="G" /></StackPane>
+            <StackPane fx:id="lampH"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="H" /></StackPane>
+            <StackPane fx:id="lampJ"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="J" /></StackPane>
+            <StackPane fx:id="lampK"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="K" /></StackPane>
+        </HBox>
+
+        <HBox styleClass="lamp-row">
+            <StackPane fx:id="lampP"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="P" /></StackPane>
+            <StackPane fx:id="lampY"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="Y" /></StackPane>
+            <StackPane fx:id="lampX"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="X" /></StackPane>
+            <StackPane fx:id="lampC"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="C" /></StackPane>
+            <StackPane fx:id="lampV"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="V" /></StackPane>
+            <StackPane fx:id="lampB"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="B" /></StackPane>
+            <StackPane fx:id="lampN"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="N" /></StackPane>
+            <StackPane fx:id="lampM"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="M" /></StackPane>
+            <StackPane fx:id="lampL"><Circle styleClass="lamp-circle" radius="18.0" /><Label styleClass="lamp-text" text="L" /></StackPane>
+        </HBox>
+    </VBox>
+
+    <VBox styleClass="keyboard-section">
+        <HBox styleClass="key-row">
+            <Button fx:id="btnQ" styleClass="enigma-key" text="Q" />
+            <Button fx:id="btnW" styleClass="enigma-key" text="W" />
+            <Button fx:id="btnE" styleClass="enigma-key" text="E" />
+            <Button fx:id="btnR" styleClass="enigma-key" text="R" />
+            <Button fx:id="btnT" styleClass="enigma-key" text="T" />
+            <Button fx:id="btnZ" styleClass="enigma-key" text="Z" />
+            <Button fx:id="btnU" styleClass="enigma-key" text="U" />
+            <Button fx:id="btnI" styleClass="enigma-key" text="I" />
+            <Button fx:id="btnO" styleClass="enigma-key" text="O" />
+        </HBox>
+        <HBox styleClass="key-row, key-row-offset-1">
+            <Button fx:id="btnA" styleClass="enigma-key" text="A" />
+            <Button fx:id="btnS" styleClass="enigma-key" text="S" />
+            <Button fx:id="btnD" styleClass="enigma-key" text="D" />
+            <Button fx:id="btnF" styleClass="enigma-key" text="F" />
+            <Button fx:id="btnG" styleClass="enigma-key" text="G" />
+            <Button fx:id="btnH" styleClass="enigma-key" text="H" />
+            <Button fx:id="btnJ" styleClass="enigma-key" text="J" />
+            <Button fx:id="btnK" styleClass="enigma-key" text="K" />
+        </HBox>
+        <HBox styleClass="key-row">
+            <Button fx:id="btnP" styleClass="enigma-key" text="P" />
+            <Button fx:id="btnY" styleClass="enigma-key" text="Y" />
+            <Button fx:id="btnX" styleClass="enigma-key" text="X" />
+            <Button fx:id="btnC" styleClass="enigma-key" text="C" />
+            <Button fx:id="btnV" styleClass="enigma-key" text="V" />
+            <Button fx:id="btnB" styleClass="enigma-key" text="B" />
+            <Button fx:id="btnN" styleClass="enigma-key" text="N" />
+            <Button fx:id="btnM" styleClass="enigma-key" text="M" />
+            <Button fx:id="btnL" styleClass="enigma-key" text="L" />
+        </HBox>
+    </VBox>
+
+    <HBox styleClass="bottom-section">
+        <Button fx:id="openPlugboardBtn" styleClass="action-btn" text="OPEN PLUGBOARD" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <Button fx:id="resetBtn" styleClass="action-btn, danger-btn" text="RESET MACHINE" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+    </HBox>
+
+</VBox>
+    <VBox spacing="5" prefWidth="300" styleClass="trace-section">
+        <Label text="SIGNAL TRACE" styleClass="section-title" />
+        <TextArea fx:id="traceArea" editable="false" VBox.vgrow="ALWAYS" styleClass="trace-field" />
+        <Button text="CLEAR LOG" onAction="#clearTrace" maxWidth="Infinity" styleClass="action-btn" />
+    </VBox>
+
+</HBox>
